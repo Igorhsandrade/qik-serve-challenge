@@ -1,11 +1,14 @@
 import Header from '../header';
 import AppRoutes from '../appRoutes';
+import styles from './styles.module.css';
 
 const Layout = () => {
   return (
     <div>
       <Header />
-      <AppRoutes />
+      <div className={styles.pagesContainer}>
+        <AppRoutes />
+      </div>
     </div>
   );
 };

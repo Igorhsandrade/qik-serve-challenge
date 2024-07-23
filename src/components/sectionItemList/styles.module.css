@@ -1,0 +1,53 @@
+.sectionItemList {
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionItemList .sectionItemLabel {
+  display: flex;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding-top: 32px;
+  padding-bottom: 16px;
+}
+
+.sectionItemList .sectionItemLabel .sectionLabelText {
+  flex: 1;
+}
+
+.sectionItemList .sectionItemLabel .sectionLabelIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.sectionItemList .sectionItemLabel .sectionLabelIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 0.75s;
+}
+
+.sectionItemList .sectionItemLabel .sectionLabelIcon img.opened {
+  transform: rotate(180deg);
+}
+
+.sectionItemList .sectionItems {
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+}
+
+.sectionItemList .sectionItems ul {
+  display: flex;
+  flex-direction: column !important;
+  list-style-type: none;
+  padding-left: unset;
+}
+
+.sectionItemList .sectionItems.opened {
+  height: auto;
+}

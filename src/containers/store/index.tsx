@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { menu } from '../../mock/menuDetails';
 import SectionIcons from '../sectionIcons';
+import SectionListGroup from '../sectionListGroup';
+import styles from './styles.module.css';
 
 const Store = () => {
   const menuStore = menu;
   const [selectedSection, setSelectedSection] = useState(0);
 
   return (
-    <div>
+    <div className={styles.storeContainer}>
       <p>Search Button</p>
       <div>
         <SectionIcons
@@ -16,13 +18,10 @@ const Store = () => {
           setSelectedSection={setSelectedSection}
         />
       </div>
-      <p>
-        <p>
-          <p>sections list</p>
-          <p>items list</p>
-        </p>
+      <div>
+        <SectionListGroup sections={menu.sections} />
         <p>basket(desktop only)</p>
-      </p>
+      </div>
     </div>
   );
 };
