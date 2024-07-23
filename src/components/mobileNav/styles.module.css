@@ -1,0 +1,65 @@
+.mobileNav {
+  background-color: #4f372f;
+  position: relative;
+  font-size: 1.125rem;
+  text-transform: capitalize;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-weight: 500;
+  letter-spacing: 0.046rem;
+}
+
+.mobileMenuButton {
+  cursor: pointer !important;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-18px, -50%);
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.mobileMenuButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mobileMenuButton .closeButton {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.mobileMenu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  width: 0;
+  background-color: #4f372f;
+  overflow: hidden !important;
+  height: calc(100vh - 77px);
+  transition: width;
+  transition-duration: 1.5s;
+}
+
+.mobileMenu.opened {
+  width: 70vw;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .mobileNav {
+    display: none;
+  }
+}
