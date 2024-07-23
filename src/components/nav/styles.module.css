@@ -1,0 +1,46 @@
+.nav {
+  display: none;
+  justify-content: center;
+  background-color: #4f372f;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav ul li {
+  position: relative;
+  display: inline-block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 232px;
+  text-align: center;
+}
+
+.menuLink {
+  position: relative;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.menuLink:visited {
+  color: #ffffff;
+}
+.nav ul li.menuLinkActive::before {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #ffffff;
+  bottom: 0;
+  right: 0;
+  content: '';
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
