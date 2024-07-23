@@ -30,9 +30,9 @@ export interface IMenuItem {
   alcoholic: number;
   price: number;
   position: number;
-  visible: number;
+  visible?: number;
   availabilityType: string;
-  sku: string;
+  sku?: string;
   images?: IImage[]; // Optional, some items may have no images
   modifiers?: IModifier[]; // Optional, used for items with modifiers
   available: boolean;
@@ -41,9 +41,9 @@ export interface IMenuItem {
 export interface ISection {
   id: number;
   name: string;
-  description?: string; // Optional
+  description?: string | null; // Optional
   position: number;
-  visible: number;
+  visible?: number;
   images: IImage[];
   items: IMenuItem[];
 }
