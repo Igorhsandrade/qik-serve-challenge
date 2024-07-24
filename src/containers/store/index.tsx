@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { menu } from '../../mock/menuDetails';
+import { MENU as menu } from '../../mock/menuDetails';
 import SectionIcons from '../sectionIcons';
 import SectionListGroup from '../sectionListGroup';
 import styles from './styles.module.css';

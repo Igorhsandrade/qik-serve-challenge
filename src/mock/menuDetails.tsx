@@ -1,6 +1,6 @@
 import { IMenu } from '../interfaces/menu';
 
-export const menu: IMenu = {
+export const MENU: IMenu = {
   id: 14730,
   name: 'FE TEST',
   type: 'MENU',
