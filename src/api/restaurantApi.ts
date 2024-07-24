@@ -11,10 +11,10 @@ type TMockAPiCall<T> = {
 const mockApiCall = (mockedData: any, timeOut = 2000) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(() => ({
+      resolve({
         status: 200,
         data: mockedData
-      }));
+      });
     }, timeOut);
   });
 };
