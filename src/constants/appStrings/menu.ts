@@ -5,4 +5,6 @@ const menuTitles = {
   contact: 'Contact'
 };
 
-export { menuTitles };
+const inputSearchPlaceholder = 'Search menu itens';
+
+export { menuTitles, inputSearchPlaceholder };

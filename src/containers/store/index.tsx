@@ -3,6 +3,7 @@ import { menu } from '../../mock/menuDetails';
 import SectionIcons from '../sectionIcons';
 import SectionListGroup from '../sectionListGroup';
 import styles from './styles.module.css';
+import SearchInput from '../../components/searchInput';
 
 const Store = () => {
   const menuStore = menu;
@@ -10,7 +11,7 @@ const Store = () => {
 
   return (
     <div className={styles.storeContainer}>
-      <p>Search Button</p>
+      <SearchInput />
       <div>
         <SectionIcons
           sectionList={menu.sections}
