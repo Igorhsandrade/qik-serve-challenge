@@ -3,6 +3,7 @@ import ItemModifier from '../../components/itemModifier';
 import { IMenuItem } from '../../interfaces/menu';
 import styles from './styles.module.css';
 import { resetSelectedItem } from '../../slices/itemSelectionSlice';
+import AddItemToBasket from '../../components/addItemToBasket';
 
 interface IProps {
   selectedItem: IMenuItem;
@@ -31,6 +32,7 @@ const ItemModal = (props: IProps) => {
           props.selectedItem.modifiers.map((modifier) => (
             <ItemModifier itemModifier={modifier} />
           ))}
+        <AddItemToBasket />
       </div>
     </div>
   );
