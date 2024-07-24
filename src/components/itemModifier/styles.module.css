@@ -1,0 +1,78 @@
+.itemModifier {
+}
+
+.itemModifierDescription {
+  padding: 24px 16px;
+  background-color: #f8f9fa;
+}
+
+.itemModifier .itemModifierDescription p {
+  font-weight: 600;
+}
+
+.itemModifier .itemModifierDescription span {
+  color: #5f5f5f;
+}
+
+.itemModifier ul {
+  list-style-type: none;
+  padding-left: unset;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.itemModifier ul li {
+  display: flex;
+  width: 100%;
+  padding: 24px 16px;
+  align-items: center;
+}
+
+.itemModifier ul li div {
+  flex: 1;
+}
+
+.itemModifier ul li div p {
+  font-weight: 600;
+}
+
+.itemModifier ul li div span {
+  color: #5f5f5f;
+}
+.itemModifier ul li input[type='radio'] {
+  width: 0;
+  height: 0;
+  position: relative;
+  margin-right: 20px;
+}
+.itemModifier ul li input[type='radio']::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: #5f5f5f solid 2px;
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+.itemModifier ul li input[type='radio']:checked::before {
+  background-color: #4f372f;
+}
+
+.itemModifier ul li input[type='radio']:checked::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

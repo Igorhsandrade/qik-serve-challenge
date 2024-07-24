@@ -6,7 +6,6 @@ import styles from './styles.module.css';
 import SearchInput from '../../components/searchInput';
 
 const Store = () => {
-  const menuStore = menu;
   const [selectedSection, setSelectedSection] = useState(0);
 
   return (
@@ -14,13 +13,12 @@ const Store = () => {
       <SearchInput />
       <div>
         <SectionIcons
-          sectionList={menu.sections}
           selectedSection={selectedSection}
           setSelectedSection={setSelectedSection}
         />
       </div>
       <div>
-        <SectionListGroup sections={menu.sections} />
+        <SectionListGroup />
         <p>basket(desktop only)</p>
       </div>
     </div>

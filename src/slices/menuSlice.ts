@@ -9,7 +9,7 @@ import {
 } from '../interfaces/menu';
 import { getAsyncMenuDetails } from '../api/restaurantApi';
 
-const initialImage: IImageage = {
+const initialImage: IImage = {
   id: 0,
   image: ''
 };

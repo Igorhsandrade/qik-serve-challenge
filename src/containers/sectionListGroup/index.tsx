@@ -1,15 +1,13 @@
+import { useAppSelector } from '../../app/hooks';
 import SectionItemList from '../../components/sectionItemList';
-import { ISection } from '../../interfaces/menu';
 import styles from './styles.module.css';
 
-interface IProps {
-  sections: ISection[];
-}
+const SectionListGroup = () => {
+  const sections = useAppSelector((state) => state.menu.menu.sections);
 
-const SectionListGroup = (props: IProps) => {
   return (
     <div className={styles.sectionListGroup}>
-      {props.sections.map((section) => (
+      {sections.map((section) => (
         <SectionItemList section={section} />
       ))}
     </div>

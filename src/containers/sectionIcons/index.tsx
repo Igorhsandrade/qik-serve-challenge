@@ -1,17 +1,18 @@
-import { ISection } from '../../interfaces/menu';
 import styles from './style.module.css';
 import SectionCard from '../../components/sectionCard';
+import { useAppSelector } from '../../app/hooks';
 
 interface IProps {
-  sectionList: ISection[];
   selectedSection: number;
   setSelectedSection: (value: number) => void;
 }
 
 const SectionIcons = (props: IProps) => {
+  const sections = useAppSelector((state) => state.menu.menu.sections);
+
   return (
     <div className={styles.sectionIconsContainer}>
-      {props.sectionList.map((section) => (
+      {sections.map((section) => (
         <SectionCard
           section={section}
           selectedCard={props.selectedSection}

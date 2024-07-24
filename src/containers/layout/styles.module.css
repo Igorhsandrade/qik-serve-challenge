@@ -1,3 +1,7 @@
+.layoutContainer {
+  position: relative;
+}
+
 .pagesContainer {
   background-color: #eeeeee;
 }
