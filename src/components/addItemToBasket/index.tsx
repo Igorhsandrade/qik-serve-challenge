@@ -6,6 +6,7 @@ const AddItemToBasket = () => {
   const selectedItem = useAppSelector(
     (state) => state.itemSelection.selectedItem
   );
+
   const [itemToCardCount, setItemToCardCount] = useState(1);
   return (
     <div className={styles.addItemToCardContainer}>

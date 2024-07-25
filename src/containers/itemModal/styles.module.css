@@ -15,7 +15,7 @@
   width: 100%;
   height: auto;
   max-height: 100vh;
-  overflow-x: scroll;
+  overflow-y: auto;
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
@@ -39,7 +39,6 @@
 .modalWrapper .modalContent .modalImageWrapper {
   width: 100%;
   height: auto;
-  min-height: 265px;
 }
 
 .modalWrapper .modalContent .modalImageWrapper img {

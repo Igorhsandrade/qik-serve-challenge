@@ -80,8 +80,26 @@ const initialState: IInitialState = {
 };
 
 export const fetchMenu = createAsyncThunk('menu/fetchMenu', async () => {
-  const response = await getAsyncMenuDetails();
-  return response;
+  try {
+    const response = await getAsyncMenuDetails();
+    const sortedResponse = { ...response };
+    const sortedSections = [...sortedResponse.sections].sort(
+      (a, b) => a.position - b.position
+    );
+    const sortedSectionsAndItems: ISection[] = sortedSections.map((section) => {
+      const sortedSection = { ...section };
+      const sortedItems = [...sortedSection.items].sort(
+        (a, b) => a.position - b.position
+      );
+      sortedSection.items = sortedItems;
+      return sortedSection;
+    });
+    sortedResponse.sections = sortedSectionsAndItems;
+    return sortedResponse;
+  } catch (err) {
+    console.log(err);
+    throw new Error(err as string);
+  }
 });
 
 export const menuSlice = createSlice({

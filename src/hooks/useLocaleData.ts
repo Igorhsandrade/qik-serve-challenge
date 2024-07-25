@@ -13,36 +13,26 @@ export interface ILocaleData {
 }
 
 export const useLocaleData = () => {
-  const [localeData, setLocaleData] = useState<ILocaleData>();
+  const [localeData, setLocaleData] = useState<{
+    data?: ILocaleData;
+    isDataLoaded: boolean;
+  }>({ isDataLoaded: false });
   const { restaurant, isLoadingRestaurant, isSuccessRestaurant } =
     useAppSelector((state) => state.restaurant);
-
-  console.log(`test`);
   useEffect(() => {
     if (!isLoadingRestaurant && isSuccessRestaurant) {
-      console.log(`test`);
-      const {
-        city,
-        country,
-        timezoneOffset,
-        locale,
-        timeZone,
-        ccy,
-        ccySymbol,
-        currency
-      } = restaurant;
-      setLocaleData({
-        city,
-        country,
-        timezoneOffset,
-        locale,
-        timeZone,
-        ccy,
-        ccySymbol,
-        currency
-      });
+      const data: ILocaleData = {
+        city: restaurant.city,
+        country: restaurant.country,
+        timezoneOffset: restaurant.timezoneOffset,
+        locale: restaurant.locale,
+        timeZone: restaurant.timeZone,
+        ccy: restaurant.ccy,
+        ccySymbol: restaurant.ccySymbol,
+        currency: restaurant.currency
+      };
+      setLocaleData({ data, isDataLoaded: true });
     }
-  }, []);
-  console.log(restaurant);
+  }, [restaurant]);
   return localeData;
 };
