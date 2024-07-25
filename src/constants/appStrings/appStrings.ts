@@ -12,5 +12,7 @@ export const basketTexts = {
 
 export const appStrings = {
   basket: 'basket',
-  emptyBasket: 'your basket is empty'
+  emptyBasket: 'your basket is empty',
+  add: 'add',
+  checkoutNow: 'checkout now'
 };

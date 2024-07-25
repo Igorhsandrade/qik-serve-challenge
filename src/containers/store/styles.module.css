@@ -20,6 +20,11 @@
   text-transform: capitalize;
 }
 
+.checkoutButtonWrapperDesktop {
+  align-self: center;
+  padding: 12px;
+}
+
 @media (min-width: 1024px) {
   .storeContainer {
     padding-left: 16px;
@@ -31,7 +36,8 @@
     gap: 12px;
   }
   .itemsAndBasketWrapper .basketWrapper {
-    display: block;
+    display: flex;
+    flex-direction: column;
     flex: 1;
   }
 

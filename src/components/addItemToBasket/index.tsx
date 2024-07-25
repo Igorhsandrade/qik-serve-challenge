@@ -5,6 +5,8 @@ import { useLocaleData } from '../../hooks/useLocaleData';
 import { ISelectedModifiers } from '../../containers/itemModal';
 import { addItemToBasket } from '../../slices/basketSlice';
 import { CounterInput } from '../counterInput';
+import { CustomButton } from '../customButton';
+import { appStrings, interpunct } from '../../constants/appStrings/appStrings';
 
 interface IProps {
   setSelectedModifiers: (state: ISelectedModifiers) => void;
@@ -65,6 +67,17 @@ const AddItemToBasket = (props: IProps) => {
     });
   };
 
+  const handleButtonClick = () => {
+    dispacth(
+      addItemToBasket({
+        itemId: selectedItem.id,
+        modifiers: props.selectedModifiers,
+        quantity: itemToCardCount,
+        price: itemTotalPrice
+      })
+    );
+  };
+
   return (
     <>
       {isDataLoaded && (
@@ -74,25 +87,15 @@ const AddItemToBasket = (props: IProps) => {
             countAddButtonOnClick={addItemToCount}
             countItem={itemToCardCount}
           />
-          <button
-            className={styles.addToCardAddButton}
-            onClick={() =>
-              dispacth(
-                addItemToBasket({
-                  itemId: selectedItem.id,
-                  modifiers: props.selectedModifiers,
-                  quantity: itemToCardCount,
-                  price: itemTotalPrice
-                })
-              )
-            }
-          >
-            Add ·{' '}
-            {itemTotalPrice.toLocaleString(data?.locale, {
+          <CustomButton
+            buttonLabel={`${
+              appStrings.add
+            } ${interpunct} ${itemTotalPrice.toLocaleString(data?.locale, {
               style: 'currency',
               currency: data?.ccy
-            })}
-          </button>
+            })}`}
+            handleButtonClick={handleButtonClick}
+          />
         </div>
       )}
     </>

@@ -6,6 +6,7 @@ import SearchInput from '../../components/searchInput';
 import { MobileBasket } from '../mobileBasket';
 import { BasketList } from '../basketList';
 import { appStrings } from '../../constants/appStrings/appStrings';
+import { CheckoutButton } from '../../components/checkoutButton';
 
 const Store = () => {
   const [selectedSection, setSelectedSection] = useState(0);
@@ -24,6 +25,9 @@ const Store = () => {
         <div className={styles.basketWrapper}>
           <p className={styles.basketTitle}>{appStrings.basket}</p>
           <BasketList />
+          <div className={styles.checkoutButtonWrapperDesktop}>
+            <CheckoutButton />
+          </div>
         </div>
         <MobileBasket />
       </div>

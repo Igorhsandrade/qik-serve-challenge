@@ -8,17 +8,16 @@
   backdrop-filter: blur(10px);
 }
 
-.basketButtonContainer .basketButton {
-  border: none;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  padding-right: 20px;
-  border-radius: 25px;
-  padding-left: 25px;
-  background-color: #4f372f;
-  color: #fff;
-  font-weight: 600;
+.checkoutButtonWrapper {
+  display: flex;
+  flex-direction: column !important;
+  width: 100%;
+  position: fixed !important;
+  bottom: 0;
+  align-items: center !important;
+  padding: 24px;
 }
+
 ::first-letter {
   text-transform: capitalize !important;
 }

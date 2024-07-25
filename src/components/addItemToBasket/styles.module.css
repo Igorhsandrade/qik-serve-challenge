@@ -7,13 +7,3 @@
   padding-left: 24px;
   gap: 10px;
 }
-
-.addItemToCardContainer .addToCardAddButton {
-  border: none;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  border-radius: 25px;
-  background-color: #4f372f;
-  color: #fff;
-  font-weight: 600;
-}

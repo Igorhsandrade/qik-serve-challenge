@@ -1,9 +1,11 @@
 .fullScreenMobileWrapper {
+  position: relative;
   position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: #f8f9fb;
   top: 0;
+  overflow-y: auto;
 }
 
 .fullScreenMobileContainer {

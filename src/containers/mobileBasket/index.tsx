@@ -10,6 +10,8 @@ import styles from './styles.module.css';
 import { FullScreenMobileComponent } from '../../components/fullScreenMobileComponent';
 import { BasketList } from '../basketList';
 import { useState } from 'react';
+import { CustomButton } from '../../components/customButton';
+import { CheckoutButton } from '../../components/checkoutButton';
 
 export const MobileBasket = () => {
   const [isShowingBasket, setIsShowingBasket] = useState(false);
@@ -22,13 +24,14 @@ export const MobileBasket = () => {
     <>
       {Object.keys(basket.items).length > 0 && (
         <div className={styles.basketButtonContainer}>
-          <button
-            className={styles.basketButton}
-            onClick={() => setIsShowingBasket((prevState) => !prevState)}
-          >
-            {basketTexts.yourBasket} {interpunct} {basket.totalItems}{' '}
-            {basket.totalItems > 1 ? items : item}
-          </button>
+          <CustomButton
+            handleButtonClick={() =>
+              setIsShowingBasket((prevState) => !prevState)
+            }
+            buttonLabel={`${basketTexts.yourBasket} ${interpunct} ${
+              basket.totalItems
+            } ${basket.totalItems > 1 ? items : item}`}
+          />
         </div>
       )}
       {isShowingBasket && (
@@ -37,6 +40,9 @@ export const MobileBasket = () => {
           handleCloseButton={handleCloseBasket}
         >
           <BasketList />
+          <div className={styles.checkoutButtonWrapper}>
+            <CheckoutButton />
+          </div>
         </FullScreenMobileComponent>
       )}
     </>
