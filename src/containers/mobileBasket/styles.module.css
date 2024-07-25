@@ -1,0 +1,30 @@
+.basketButtonContainer {
+  width: 100%;
+  position: sticky !important;
+  display: flex;
+  padding: 8px 24px 24px 24px;
+  bottom: 0;
+  justify-content: center !important;
+  backdrop-filter: blur(10px);
+}
+
+.basketButtonContainer .basketButton {
+  border: none;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-right: 20px;
+  border-radius: 25px;
+  padding-left: 25px;
+  background-color: #4f372f;
+  color: #fff;
+  font-weight: 600;
+}
+::first-letter {
+  text-transform: capitalize !important;
+}
+
+@media (min-width: 1024px) {
+  .basketButtonContainer {
+    display: none;
+  }
+}

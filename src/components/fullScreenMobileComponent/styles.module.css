@@ -1,0 +1,32 @@
+.fullScreenMobileWrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f9fb;
+  top: 0;
+}
+
+.fullScreenMobileContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fullScreenMobileContainer .fullScreenMobileContainerTitle {
+  font-size: 1.125rem;
+  text-align: center;
+  padding: 23px 52px;
+  border-bottom: #dadada 1px solid;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.fullScreenMobileContainer .fullScreenMobileContainerCloseButton {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  width: 25px;
+  height: 25px;
+  background-image: url('../../assets/images/close-black.svg');
+  background-size: contain;
+}

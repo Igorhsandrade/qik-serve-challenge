@@ -14,6 +14,18 @@
   flex-direction: column;
 }
 
+.menuItem .menuItemInfos .menuItemCount {
+  display: inline-block;
+  background-color: #4f372f;
+  font-weight: bold;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 15%;
+  text-align: center;
+  margin-right: 10px;
+}
+
 .menuItem .menuItemInfos .menuItemName {
   font-weight: 600;
 }

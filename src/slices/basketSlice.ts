@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ISelectedModifiers } from '../containers/itemModal';
+import { ISection } from '../interfaces/menu';
 
 export interface IBasket {
   items: {
     [itemId: string]: IBasketItem[];
   };
+  totalItems: number;
   total: number;
 }
 
@@ -12,6 +14,7 @@ export interface IBasketItem {
   itemId: string;
   modifiers: ISelectedModifiers;
   quantity: number;
+  price: number;
 }
 
 const getBasketItem = (item: IBasketItem, basket: IBasket) => {
@@ -53,7 +56,20 @@ const isItemSame = (item1: IBasketItem, item2: IBasketItem) => {
   return false;
 };
 
-const initialState: IBasket = { items: {}, total: 0 };
+export const getTotalBasketPrice = (basket: IBasket) => {
+  return Object.values(basket.items).reduce((total, item) => {
+    return (
+      item.reduce((total, item) => total + item.price * item.quantity, 0) +
+      total
+    );
+  }, 0);
+};
+
+const initialState: IBasket = {
+  items: {},
+  total: 0,
+  totalItems: 0
+};
 
 export const basketSlice = createSlice({
   name: 'basket',
@@ -78,6 +94,8 @@ export const basketSlice = createSlice({
         //If item doesn't exist add to item to basket
         state.items[action.payload.itemId] = [{ ...action.payload }];
       }
+      state.totalItems += action.payload.quantity;
+      state.total = getTotalBasketPrice(state);
       return;
     },
     removeItemFromBasket: (state, action) => {
@@ -98,11 +116,13 @@ export const basketSlice = createSlice({
           }
         }
       }
+      state.totalItems -= action.payload.quantity;
+      state.total = getTotalBasketPrice(state);
       return;
     }
   }
 });
 
-export const { addItemToBasket } = basketSlice.actions;
+export const { addItemToBasket, removeItemFromBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

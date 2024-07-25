@@ -26,7 +26,7 @@ const Layout = () => {
             <div className={styles.pagesContainer}>
               <AppRoutes />
             </div>
-            {isItemSelected && <ItemModal selectedItem={selectedItem} />}
+            {isItemSelected && <ItemModal />}
           </div>
         )}{' '}
     </>

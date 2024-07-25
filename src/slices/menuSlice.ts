@@ -71,12 +71,18 @@ export interface IInitialState {
   isLoadingMenu: boolean;
   isSuccessMenu: boolean;
   menu: IMenu;
+  itemIdsToNames: { [key: number]: string };
+  modifierIdsToNames: {
+    [key: number]: { modifierItemName: string; modifierItemPrice: number };
+  };
 }
 
 const initialState: IInitialState = {
   isLoadingMenu: false,
   isSuccessMenu: false,
-  menu: initialMenu
+  menu: initialMenu,
+  itemIdsToNames: {},
+  modifierIdsToNames: {}
 };
 
 export const fetchMenu = createAsyncThunk('menu/fetchMenu', async () => {
@@ -102,6 +108,52 @@ export const fetchMenu = createAsyncThunk('menu/fetchMenu', async () => {
   }
 });
 
+export const getItemIdsToNames = (sections: ISection[]) => {
+  return sections.reduce((acc, section) => {
+    return {
+      ...acc,
+      ...section.items.reduce((acc, item) => {
+        return {
+          ...acc,
+          [item.id]: item.name
+        };
+      }, {})
+    };
+  }, {});
+};
+
+export const getModifierIdsToNames = (sections: ISection[]) => {
+  return sections.reduce((acc, section) => {
+    return {
+      ...acc,
+      ...section.items.reduce((acc, item) => {
+        if (item.modifiers) {
+          return {
+            ...acc,
+            ...item.modifiers.reduce((acc, modifier) => {
+              return {
+                ...acc,
+                ...modifier.items.reduce((acc, item) => {
+                  return {
+                    ...acc,
+                    [item.id]: {
+                      modifierItemName: item.name,
+                      modifierItemPrice: item.price
+                    }
+                  };
+                }, {})
+              };
+            }, {})
+          };
+        }
+        return {
+          ...acc
+        };
+      }, {})
+    };
+  }, {});
+};
+
 export const menuSlice = createSlice({
   name: 'menu',
   initialState,
@@ -114,6 +166,8 @@ export const menuSlice = createSlice({
       state.isLoadingMenu = false;
       state.isSuccessMenu = true;
       state.menu = action.payload;
+      state.itemIdsToNames = getItemIdsToNames(action.payload.sections);
+      state.modifierIdsToNames = getModifierIdsToNames(action.payload.sections);
     });
     builder.addCase(fetchMenu.rejected, (state) => {
       state.isLoadingMenu = false;

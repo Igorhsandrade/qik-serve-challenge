@@ -3,6 +3,7 @@ import { IMenuItem } from '../../interfaces/menu';
 import styles from './style.module.css';
 import { selectItem } from '../../slices/itemSelectionSlice';
 import { useLocaleData } from '../../hooks/useLocaleData';
+import { useAppSelector } from '../../app/hooks';
 
 interface IProps {
   item: IMenuItem;
@@ -10,6 +11,7 @@ interface IProps {
 
 const MenuItem = (props: IProps) => {
   const dispatch = useDispatch();
+  const { items } = useAppSelector((state) => state.basket);
   const { data, isDataLoaded } = useLocaleData();
 
   return (
@@ -20,7 +22,17 @@ const MenuItem = (props: IProps) => {
           onClick={() => dispatch(selectItem(props.item))}
         >
           <div className={styles.menuItemInfos}>
-            <p className={styles.menuItemName}>{props.item.name}</p>
+            <p className={styles.menuItemName}>
+              {props.item.id in items && (
+                <span className={styles.menuItemCount}>
+                  {items[props.item.id].reduce(
+                    (acc, item) => item.quantity + acc,
+                    0
+                  )}
+                </span>
+              )}
+              {props.item.name}
+            </p>
             {props.item.description && (
               <span className={styles.menuItemDescription}>
                 {props.item.description}

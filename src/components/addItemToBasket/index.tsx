@@ -81,7 +81,8 @@ const AddItemToBasket = (props: IProps) => {
                 addItemToBasket({
                   itemId: selectedItem.id,
                   modifiers: props.selectedModifiers,
-                  quantity: itemToCardCount
+                  quantity: itemToCardCount,
+                  price: itemTotalPrice
                 })
               )
             }

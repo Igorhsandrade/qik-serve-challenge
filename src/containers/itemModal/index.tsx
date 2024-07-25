@@ -4,39 +4,53 @@ import { IMenuItem } from '../../interfaces/menu';
 import styles from './styles.module.css';
 import { resetSelectedItem } from '../../slices/itemSelectionSlice';
 import AddItemToBasket from '../../components/addItemToBasket';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { GenericModal } from '../../components/genericModal';
+import { useAppSelector } from '../../app/hooks';
 
-interface IProps {
-  selectedItem: IMenuItem;
-}
 export interface ISelectedModifiers {
   [modifierId: string]: {
     [modifierItemId: string]: number;
   };
 }
 
-const ItemModal = (props: IProps) => {
+const ItemModal = () => {
+  const [isShowingModal, setIsShowingModal] = useState(false);
   const dispacth = useDispatch();
   const [selectedModifiers, setSelectedModifiers] =
     useState<ISelectedModifiers>({});
+  const { selectedItem, isItemSelected } = useAppSelector(
+    (state) => state.itemSelection
+  );
+
+  const handleCloseModal = () => {
+    dispacth(resetSelectedItem());
+    setIsShowingModal(false);
+  };
+
+  useEffect(() => {
+    if (isItemSelected) {
+      setIsShowingModal(true);
+    }
+  }, [selectedItem]);
+
   return (
-    <div className={styles.modalWrapper}>
-      <div className={styles.modalContent}>
-        <span
-          className={styles.modalCloseButton}
-          onClick={() => dispacth(resetSelectedItem())}
-        ></span>
-        {props.selectedItem.images && props.selectedItem.images[0] && (
+    <GenericModal
+      isShowingModal={isShowingModal}
+      handleCloseModal={handleCloseModal}
+    >
+      <>
+        {selectedItem.images && selectedItem.images[0] && (
           <div className={styles.modalImageWrapper}>
-            <img src={props.selectedItem.images[0].image} />
+            <img src={selectedItem.images[0].image} />
           </div>
         )}
         <div className={styles.modalItemDescription}>
-          <p>{props.selectedItem.name}</p>
-          <span>{props.selectedItem.description}</span>
+          <p>{selectedItem.name}</p>
+          <span>{selectedItem.description}</span>
         </div>
-        {props.selectedItem.modifiers &&
-          props.selectedItem.modifiers.map((modifier, id) => (
+        {selectedItem.modifiers &&
+          selectedItem.modifiers.map((modifier, id) => (
             <ItemModifier
               key={modifier.id}
               itemModifier={modifier}
@@ -49,8 +63,8 @@ const ItemModal = (props: IProps) => {
           setSelectedModifiers={setSelectedModifiers}
           selectedModifiers={selectedModifiers}
         />
-      </div>
-    </div>
+      </>
+    </GenericModal>
   );
 };
 

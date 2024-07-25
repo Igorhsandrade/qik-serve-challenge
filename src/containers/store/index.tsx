@@ -3,6 +3,9 @@ import SectionIcons from '../sectionIcons';
 import SectionListGroup from '../sectionListGroup';
 import styles from './styles.module.css';
 import SearchInput from '../../components/searchInput';
+import { MobileBasket } from '../mobileBasket';
+import { BasketList } from '../basketList';
+import { appStrings } from '../../constants/appStrings/appStrings';
 
 const Store = () => {
   const [selectedSection, setSelectedSection] = useState(0);
@@ -10,15 +13,19 @@ const Store = () => {
   return (
     <div className={styles.storeContainer}>
       <SearchInput />
-      <div>
-        <SectionIcons
-          selectedSection={selectedSection}
-          setSelectedSection={setSelectedSection}
-        />
-      </div>
-      <div>
-        <SectionListGroup />
-        <p>basket(desktop only)</p>
+      <div className={styles.itemsAndBasketWrapper}>
+        <div className={styles.itemsListWrapper}>
+          <SectionIcons
+            selectedSection={selectedSection}
+            setSelectedSection={setSelectedSection}
+          />
+          <SectionListGroup />
+        </div>
+        <div className={styles.basketWrapper}>
+          <p className={styles.basketTitle}>{appStrings.basket}</p>
+          <BasketList />
+        </div>
+        <MobileBasket />
       </div>
     </div>
   );
