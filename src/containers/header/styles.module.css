@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: column !important;
+  color: #fff;
+}
+
+.header .headerImageContainer {
+  display: flex;
+  height: 150px;
+  width: 100%;
+  background-color: #36231c;
+}
+
+.header .headerImageContainer img {
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+  max-width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,0 +1,58 @@
+.menuItem {
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menuItem .menuItemInfos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItem .menuItemInfos .menuItemCount {
+  display: inline-block;
+  background-color: #4f372f;
+  font-weight: bold;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 15%;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.menuItem .menuItemInfos .menuItemName {
+  font-weight: 600;
+}
+
+.menuItem .menuItemInfos .menuItemDescription {
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #4f372f;
+}
+
+.menuItem .menuItemInfos .menuItemPrice {
+  font-weight: 600;
+  color: #464646;
+}
+
+.menuItem .menuItemImageContainer {
+  width: 128px;
+}
+
+.menuItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  overflow: hidden;
+}

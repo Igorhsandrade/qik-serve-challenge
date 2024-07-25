@@ -1,0 +1,29 @@
+.basketButtonContainer {
+  width: 100%;
+  position: sticky !important;
+  display: flex;
+  padding: 8px 24px 24px 24px;
+  bottom: 0;
+  justify-content: center !important;
+  backdrop-filter: blur(10px);
+}
+
+.checkoutButtonWrapper {
+  display: flex;
+  flex-direction: column !important;
+  width: 100%;
+  position: fixed !important;
+  bottom: 0;
+  align-items: center !important;
+  padding: 24px;
+}
+
+::first-letter {
+  text-transform: capitalize !important;
+}
+
+@media (min-width: 1024px) {
+  .basketButtonContainer {
+    display: none;
+  }
+}

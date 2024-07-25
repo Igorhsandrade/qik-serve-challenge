@@ -1,0 +1,10 @@
+.sectionIconsContainer {
+  display: flex;
+  gap: 12px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
+  overflow-x: auto;
+  background-color: #fff;
+}

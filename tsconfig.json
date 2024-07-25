@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "declaration": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@interfaces/*": ["interfaces/*"]
+    }
+  },
   "files": [],
   "references": [
     {

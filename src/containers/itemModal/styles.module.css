@@ -1,0 +1,28 @@
+.modalImageWrapper {
+  width: 100%;
+  height: auto;
+}
+
+.modalImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalItemDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modalItemDescription p {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.modalItemDescription span {
+  color: #464646;
+}

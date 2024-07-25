@@ -1,0 +1,47 @@
+.storeContainer {
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.itemsAndBasketWrapper .basketWrapper {
+  align-self: start;
+  background-color: #fff;
+  display: none;
+}
+
+.itemsAndBasketWrapper .basketWrapper .basketTitle {
+  font-size: 1.125rem;
+  text-align: center;
+  padding: 23px 52px;
+  border-bottom: #dadada 1px solid;
+  font-weight: 600;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.checkoutButtonWrapperDesktop {
+  align-self: center;
+  padding: 12px;
+}
+
+@media (min-width: 1024px) {
+  .storeContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .itemsAndBasketWrapper {
+    display: flex;
+    gap: 12px;
+  }
+  .itemsAndBasketWrapper .basketWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .itemsAndBasketWrapper .itemsListWrapper {
+    flex: 2;
+  }
+}
