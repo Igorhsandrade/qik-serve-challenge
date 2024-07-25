@@ -14,6 +14,7 @@ const SectionIcons = (props: IProps) => {
     <div className={styles.sectionIconsContainer}>
       {sections.map((section) => (
         <SectionCard
+          key={section.id}
           section={section}
           selectedCard={props.selectedSection}
           setSelectedCard={props.setSelectedSection}

@@ -31,7 +31,7 @@ const SectionItemList = (props: IProps) => {
       >
         <ul>
           {props.section.items.map((item) => (
-            <MenuItem item={item} />
+            <MenuItem key={item.id} item={item} />
           ))}
         </ul>
       </div>

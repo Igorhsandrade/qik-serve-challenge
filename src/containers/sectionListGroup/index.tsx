@@ -8,7 +8,7 @@ const SectionListGroup = () => {
   return (
     <div className={styles.sectionListGroup}>
       {sections.map((section) => (
-        <SectionItemList section={section} />
+        <SectionItemList key={section.id} section={section} />
       ))}
     </div>
   );

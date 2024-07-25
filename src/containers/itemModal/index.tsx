@@ -30,7 +30,7 @@ const ItemModal = (props: IProps) => {
         </div>
         {props.selectedItem.modifiers &&
           props.selectedItem.modifiers.map((modifier) => (
-            <ItemModifier itemModifier={modifier} />
+            <ItemModifier key={modifier.id} itemModifier={modifier} />
           ))}
         <AddItemToBasket />
       </div>

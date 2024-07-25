@@ -22,7 +22,7 @@ const ItemModifier = (props: IProps) => {
           </div>
           <ul>
             {props.itemModifier.items.map((item) => (
-              <label>
+              <label key={item.id}>
                 <li>
                   <div>
                     <p>{item.name}</p>
