@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import { useAppSelector } from '../../app/hooks';
 import { IBasketItem } from '../../slices/basketSlice';
@@ -7,7 +7,6 @@ import { BasketItem } from '../../components/basketItem';
 import { useLocaleData } from '../../hooks/useLocaleData';
 import {
   appStrings,
-  item,
   subtotal,
   total
 } from '../../constants/appStrings/appStrings';

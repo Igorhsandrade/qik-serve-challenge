@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import ItemModifier from '../../components/itemModifier';
-import { IMenuItem } from '../../interfaces/menu';
 import styles from './styles.module.css';
 import { resetSelectedItem } from '../../slices/itemSelectionSlice';
 import AddItemToBasket from '../../components/addItemToBasket';

@@ -1,5 +1,5 @@
 const Login = () => {
-  return <div>Login</div>;
+  return <div>Not implemented yet</div>;
 };
 
 export default Login;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { CustomButton } from '../customButton';
 import { appStrings } from '../../constants/appStrings/appStrings';
 import { useDispatch } from 'react-redux';

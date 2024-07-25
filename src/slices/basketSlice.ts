@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ISelectedModifiers } from '../containers/itemModal';
-import { ISection } from '../interfaces/menu';
 
 export interface IBasket {
   items: {
@@ -121,7 +120,6 @@ export const basketSlice = createSlice({
       return;
     },
     resetBasket: (state) => {
-      console.log(`resetBasket`);
       state.items = initialState.items;
       state.total = initialState.total;
       state.totalItems = initialState.totalItems;

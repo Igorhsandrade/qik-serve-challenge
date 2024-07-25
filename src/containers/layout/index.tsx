@@ -5,9 +5,7 @@ import ItemModal from '../itemModal';
 import { useAppSelector } from '../../app/hooks';
 
 const Layout = () => {
-  const { selectedItem, isItemSelected } = useAppSelector(
-    (state) => state.itemSelection
-  );
+  const { isItemSelected } = useAppSelector((state) => state.itemSelection);
   const { isLoadingMenu, isSuccessMenu } = useAppSelector(
     (state) => state.menu
   );
