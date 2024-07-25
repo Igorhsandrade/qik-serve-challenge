@@ -4,14 +4,21 @@ import { IMenuItem } from '../../interfaces/menu';
 import styles from './styles.module.css';
 import { resetSelectedItem } from '../../slices/itemSelectionSlice';
 import AddItemToBasket from '../../components/addItemToBasket';
+import { useState } from 'react';
 
 interface IProps {
   selectedItem: IMenuItem;
 }
+export interface ISelectedModifiers {
+  [modifierId: string]: {
+    [modifierItemId: string]: number;
+  };
+}
 
 const ItemModal = (props: IProps) => {
   const dispacth = useDispatch();
-
+  const [selectedModifiers, setSelectedModifiers] =
+    useState<ISelectedModifiers>({});
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modalContent}>
@@ -29,10 +36,19 @@ const ItemModal = (props: IProps) => {
           <span>{props.selectedItem.description}</span>
         </div>
         {props.selectedItem.modifiers &&
-          props.selectedItem.modifiers.map((modifier) => (
-            <ItemModifier key={modifier.id} itemModifier={modifier} />
+          props.selectedItem.modifiers.map((modifier, id) => (
+            <ItemModifier
+              key={modifier.id}
+              itemModifier={modifier}
+              modifierPosition={id}
+              setSelectedModifiers={setSelectedModifiers}
+              selectedModifiers={selectedModifiers}
+            />
           ))}
-        <AddItemToBasket />
+        <AddItemToBasket
+          setSelectedModifiers={setSelectedModifiers}
+          selectedModifiers={selectedModifiers}
+        />
       </div>
     </div>
   );

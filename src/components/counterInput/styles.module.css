@@ -1,0 +1,32 @@
+.countButtons {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5rem;
+  align-items: center;
+  font-weight: 600;
+  color: #121212;
+}
+
+.countButtons span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.countButtons .removeCountButton {
+  background-color: #dadada;
+  background-image: url('../../assets/images/minus-grey.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+}
+
+.countButtons .addCountButton {
+  background-color: #4f372f;
+  background-image: url('../../assets/images/plus-white.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+}
